@@ -1,0 +1,29 @@
+<mujoco>
+    <compiler angle="radian"/>
+    <default>
+        <geom friction="1 0.1 0.1"/>
+        <general ctrllimited="true" forcelimited="true"></general>
+        <joint limited="true" damping="0.1" armature="0.001" margin="0.01" frictionloss="0.001"></joint>
+    </default>
+    <worldbody>
+        <!-- 第一个方块 -->
+        <body name="box1" pos="0 0 0">
+            <geom type="box" size="0.0125 0.025 0.025" rgba="1 0 0 1"/>
+            <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01"/>
+            <!-- 第二个方块 -->
+            <body name="box2" pos="0.025 0.0 0">
+                <joint name="rotate_joint" type="hinge" axis="1 0 0" pos="0.025 0 0" damping="0.1" range="-100 100" armature="0.005"/>
+                <geom type="box" size="0.0125 0.025 0.025" rgba="0 0 1 1"/>
+                <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01"/>
+            </body>
+        </body>
+    </worldbody>
+
+    <contact>
+        <exclude body1="box1" body2="box2"/>
+    </contact>
+
+    <actuator>
+        <motor joint="rotate_joint" ctrllimited="true" ctrlrange="-10 10" forcerange="-10 10"/>
+    </actuator>
+</mujoco>

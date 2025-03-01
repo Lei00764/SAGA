@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="right_hand">
+    <option gravity="0 0 0" timestep="0.001" integrator="implicit" />
+    <default>
+        <joint limited="true" damping="1" armature="0.001" margin="0.01" frictionloss="0.001" />
+        <geom friction="3. 2 2" solref=".01 0.9" solimp="0.9 0.999 0.005" />
+        <site size="0.005" rgba="0.4 0.9 0.4 1" />
+        <general ctrllimited="true" forcelimited="true" />
+    </default>
+    <option timestep="0.001" integrator="implicit" />
+    <compiler angle="radian" />
+    <worldbody>
+        <body name="arbitrary_joint_base">
+            <inertial pos="0 0 0" quat="1 0 0 0" mass="0.5" diaginertia="0.01 0.01 0.01" />
+            <body name="ARTx_body">
+                <inertial pos="0 0 0" mass="0.1" diaginertia="1.0 1.0 1.0" />
+                <joint name="ARTx" pos="0 0 0" axis="1 0 0" type="slide" range="-1 1" damping="20" />
+                <body name="ARTy_body">
+                    <inertial pos="0 0 0" mass="0.1" diaginertia="1.0 1.0 1.0" />
+                    <joint name="ARTy" pos="0 0 0" axis="0 1 0" type="slide" range="-1 1"
+                        damping="20" />
+                    <body name="ARTz_body">
+                        <inertial pos="0 0 0" mass="0.1" diaginertia="1.0 1.0 1.0" />
+                        <joint name="ARTz" pos="0 0 0" axis="0 0 1" type="slide" range="-1 1"
+                            damping="20" />
+                        <body name="ARRx_body">s
+                            <inertial pos="0 0 0" mass="0.1" diaginertia="1.0 1.0 1.0" />
+                            <joint name="ARRx" pos="0 0 0" axis="1 0 0" range="-3.14 3.14"
+                                damping="20" />
+                            <body name="ARRy_body">
+                                <inertial pos="0 0 0" mass="0.1" diaginertia="1.0 1.0 1.0" />
+                                <joint name="ARRy" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"
+                                    damping="20" />
+                                <body name="ARRz_body">
+                                    <inertial pos="0 0 0" mass="0.1" diaginertia="1.0 1.0 1.0" />
+
+                                    <joint name="ARRz" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"
+                                        damping="20" />
+                                    <body name="arbitrary_object_base">
+                                        <body name="right_hand_trunk" pos="-0.25 0 0"
+                                            quat="0.5 -0.5 0.5 -0.5">
+                                            <geom type="mesh" rgba="0.75294 0.75294 0.75294 1"
+                                                mesh="r_a_link7" />
+                                            <geom type="mesh" rgba="1 1 1 1" mesh="r_a_link7_1" />
+                                            <geom type="mesh" rgba="1 1 1 1" mesh="r_a_link7_2" />
+                                            <geom type="mesh" rgba="0.29804 0.29804 0.29804 1"
+                                                mesh="r_a_link7_3" />
+                                            <geom type="mesh" rgba="1 1 1 1" mesh="r_a_link7_4" />
+                                            <geom type="mesh" rgba="0.89804 0.91765 0.92941 1"
+                                                mesh="r_a_link7_5" />
+                                            <geom type="mesh" rgba="0.52941 0.54902 0.54902 1"
+                                                mesh="r_a_link7_6" />
+                                            <geom type="mesh" rgba="0.184314 0.466667 1 1"
+                                                mesh="r_a_link7_7" />
+                                            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1"
+                                                mesh="r_a_link7_8" />
+                                            <body name="r_f_link1_1"
+                                                pos="-0.033934 0.030194 0.25136"
+                                                quat="0.679638 -0.0774893 0.0825276 0.72476">
+                                                <inertial pos="-0.00011281 0.0015271 0.013552"
+                                                    quat="0.722092 -0.121341 0.110234 0.672092"
+                                                    mass="0.58431"
+                                                    diaginertia="1.98054e-06 1.90873e-06 1.26623e-06" />
+                                                <joint name="r_f_joint1_1" pos="0 0 0" axis="0 0 1"
+                                                    range="-2.35 0"
+                                                    actuatorfrcrange="-100 100" />
+                                                <geom type="mesh" rgba="0.33333 0.33333 0.33333 1"
+                                                    mesh="r_f_link1_1" />
+                                                <body name="r_f_link1_2" pos="0 0.01598 0.0093"
+                                                    quat="0.499959 0.500039 -0.499963 -0.500039">
+                                                    <inertial pos="-0.0101659 0.0290341 9.4964e-05"
+                                                        quat="0.433108 0.585162 -0.394494 0.560694"
+                                                        mass="0.53912"
+                                                        diaginertia="9.93789e-06 9.61348e-06 5.27707e-06" />
+                                                    <joint name="r_f_joint1_2" pos="0 0 0"
+                                                        axis="0 0 -1" range="0 0.78"
+                                                        actuatorfrcrange="-100 100" />
+                                                    <geom type="mesh" rgba="0.3098 0.3098 0.3098 1"
+                                                        mesh="r_f_link1_2" />
+                                                    <geom type="mesh"
+                                                        rgba="0.89804 0.91765 0.92941 1"
+                                                        mesh="r_f_link1_2_1" />
+                                                    <body name="r_f_link1_3"
+                                                        pos="-0.020827 0.050904 0">
+                                                        <inertial
+                                                            pos="-0.0113514 0.0217925 9.06839e-05"
+                                                            quat="0.687504 0.68338 0.174112 0.173247"
+                                                            mass="0.55963"
+                                                            diaginertia="6.23707e-06 5.71493e-06 2.21335e-06" />
+                                                        <joint name="r_f_joint1_3" pos="0 0 0"
+                                                            axis="0 0 1" range="-1.57 0"
+                                                            actuatorfrcrange="-100 100" />
+                                                        <geom type="mesh"
+                                                            rgba="0.3098 0.3098 0.3098 1"
+                                                            mesh="r_f_link1_3" />
+                                                        <geom type="mesh"
+                                                            rgba="0.89804 0.91765 0.92941 1"
+                                                            mesh="r_f_link1_3_1" />
+                                                        <geom type="mesh"
+                                                            rgba="0.89804 0.91765 0.92941 1"
+                                                            mesh="r_f_link1_3_2" />
+                                                        <site name="site_r_f_link1_3"
+                                                            pos="-0.009 0.03 0" size="0.01"
+                                                            type="sphere" />
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="r_f_link2_1"
+                                                pos="-0.034918 0.006942 0.31685"
+                                                quat="0.499823 -0.500175 -0.499825 -0.500177">
+                                                <inertial pos="0.0076685 -1.9581e-05 -0.0016592"
+                                                    quat="0.342444 0.630189 0.600316 0.353856"
+                                                    mass="0.50578"
+                                                    diaginertia="1.0215e-06 9.78793e-07 7.18278e-07" />
+                                                <joint name="r_f_joint2_1" pos="0 0 0" axis="0 0 1"
+                                                    range="-0.25 0"
+                                                    actuatorfrcrange="-100 100" />
+                                                <geom type="mesh" rgba="0.3098 0.3098 0.3098 1"
+                                                    mesh="r_f_link2_1" />
+                                                <body name="r_f_link2_2" pos="0.017 0 0"
+                                                    quat="0.707105 0.707108 0 0">
+                                                    <inertial
+                                                        pos="0.0212697 0.000212337 0.000212982"
+                                                        quat="0.506932 0.508346 0.491156 0.493326"
+                                                        mass="0.530681"
+                                                        diaginertia="4.9854e-06 4.55617e-06 1.68229e-06" />
+                                                    <joint name="r_f_joint2_2" pos="0 0 0"
+                                                        axis="0 0 -1" range="-1.57 0"
+                                                        actuatorfrcrange="-100 100" />
+                                                    <geom type="mesh"
+                                                        rgba="0.75294 0.75294 0.75294 1"
+                                                        mesh="r_f_link2_2" />
+                                                    <geom type="mesh"
+                                                        rgba="0.29804 0.29804 0.29804 1"
+                                                        mesh="r_f_link2_2_1" />
+                                                    <geom type="mesh" rgba="1 1 1 1"
+                                                        mesh="r_f_link2_2_2" />
+                                                    <body name="r_f_link2_3" pos="0.043 0 0">
+                                                        <inertial
+                                                            pos="0.012599 -0.00126744 1.56473e-05"
+                                                            quat="0.00361408 0.708871 -0.011134 0.705241"
+                                                            mass="0.515559"
+                                                            diaginertia="1.06055e-06 9.83796e-07 5.45249e-07" />
+                                                        <joint name="r_f_joint2_3" pos="0 0 0"
+                                                            axis="0 0 -1" range="-1.57 0"
+                                                            actuatorfrcrange="-100 100" />
+                                                        <geom type="mesh"
+                                                            rgba="0.75294 0.75294 0.75294 1"
+                                                            mesh="r_f_link2_3" />
+                                                        <geom type="mesh"
+                                                            rgba="0.29804 0.29804 0.29804 1"
+                                                            mesh="r_f_link2_3_1" />
+                                                        <geom type="mesh" rgba="1 1 1 1"
+                                                            mesh="r_f_link2_3_2" />
+                                                        <body name="r_f_link2_4" pos="0.025 0 0">
+                                                            <inertial
+                                                                pos="0.0181298 -0.000161505 9.06067e-07"
+                                                                quat="0.509485 0.509526 0.490243 0.490378"
+                                                                mass="0.593678"
+                                                                diaginertia="2.50997e-06 2.25825e-06 7.9547e-07" />
+                                                            <joint name="r_f_joint2_4" pos="0 0 0"
+                                                                axis="0 0 -1" range="-1.57 0"
+                                                                actuatorfrcrange="-100 100" />
+                                                            <geom type="mesh"
+                                                                rgba="0.33333 0.33333 0.33333 1"
+                                                                mesh="r_f_link2_4" />
+                                                            <geom type="mesh"
+                                                                rgba="0.29804 0.29804 0.29804 1"
+                                                                mesh="r_f_link2_4_1" />
+                                                            <geom type="mesh" rgba="1 1 1 1"
+                                                                mesh="r_f_link2_4_2" />
+                                                            <site name="site_r_f_link2_4"
+                                                                pos="0.025 0.003 0" size="0.01"
+                                                                type="sphere" />
+                                                        </body>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="r_f_link3_1"
+                                                pos="-0.010618 0.0069587 0.32585"
+                                                quat="0.499823 -0.500175 -0.499825 -0.500177">
+                                                <inertial pos="0.0076685 -1.9581e-05 -0.0016592"
+                                                    quat="0.342444 0.630189 0.600316 0.353856"
+                                                    mass="0.50578"
+                                                    diaginertia="1.0215e-06 9.78793e-07 7.18278e-07" />
+                                                <joint name="r_f_joint3_1" pos="0 0 0" axis="0 0 -1"
+                                                    range="-0.0001 0.0001"
+                                                    actuatorfrcrange="-100 100" />
+                                                <geom type="mesh" rgba="0.3098 0.3098 0.3098 1"
+                                                    mesh="r_f_link3_1" />
+                                                <body name="r_f_link3_2" pos="0.017 0 0"
+                                                    quat="0.707105 0.707108 0 0">
+                                                    <inertial pos="0.0212697 0.00021993 0.000212982"
+                                                        quat="0.506925 0.508391 0.491109 0.493334"
+                                                        mass="0.530681"
+                                                        diaginertia="4.98542e-06 4.55861e-06 1.68472e-06" />
+                                                    <joint name="r_f_joint3_2" pos="0 0 0"
+                                                        axis="0 0 -1" range="-1.57 0"
+                                                        actuatorfrcrange="-100 100" />
+                                                    <geom type="mesh"
+                                                        rgba="0.75294 0.75294 0.75294 1"
+                                                        mesh="r_f_link3_2" />
+                                                    <geom type="mesh"
+                                                        rgba="0.29804 0.29804 0.29804 1"
+                                                        mesh="r_f_link3_2_1" />
+                                                    <geom type="mesh" rgba="1 1 1 1"
+                                                        mesh="r_f_link3_2_2" />
+                                                    <body name="r_f_link3_3" pos="0.043 0 0">
+                                                        <inertial
+                                                            pos="0.0125587 -0.00126744 1.56528e-05"
+                                                            quat="0.00241003 0.708882 -0.00999291 0.705252"
+                                                            mass="0.515559"
+                                                            diaginertia="1.06055e-06 9.83738e-07 5.45304e-07" />
+                                                        <joint name="r_f_joint3_3" pos="0 0 0"
+                                                            axis="0 0 -1" range="-1.57 0"
+                                                            actuatorfrcrange="-100 100" />
+                                                        <geom type="mesh"
+                                                            rgba="0.75294 0.75294 0.75294 1"
+                                                            mesh="r_f_link3_3" />
+                                                        <geom type="mesh"
+                                                            rgba="0.29804 0.29804 0.29804 1"
+                                                            mesh="r_f_link3_3_1" />
+                                                        <geom type="mesh" rgba="1 1 1 1"
+                                                            mesh="r_f_link3_3_2" />
+                                                        <body name="r_f_link3_4" pos="0.025 0 0">
+                                                            <inertial
+                                                                pos="0.0181726 -0.000161514 1.06325e-06"
+                                                                quat="0.50982 0.509883 0.489872 0.490029"
+                                                                mass="0.593678"
+                                                                diaginertia="2.51231e-06 2.26042e-06 7.9528e-07" />
+                                                            <joint name="r_f_joint3_4" pos="0 0 0"
+                                                                axis="0 0 -1" range="-1.57 0"
+                                                                actuatorfrcrange="-100 100" />
+                                                            <geom type="mesh"
+                                                                rgba="0.33333 0.33333 0.33333 1"
+                                                                mesh="r_f_link3_4" />
+                                                            <geom type="mesh"
+                                                                rgba="0.29804 0.29804 0.29804 1"
+                                                                mesh="r_f_link3_4_1" />
+                                                            <geom type="mesh" rgba="1 1 1 1"
+                                                                mesh="r_f_link3_4_2" />
+                                                            <site name="site_r_f_link3_4"
+                                                                pos="0.025 0.003 0" size="0.01"
+                                                                type="sphere" />
+                                                        </body>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="r_f_link4_1"
+                                                pos="0.013682 0.0069755 0.31685"
+                                                quat="0.499823 -0.500175 -0.499825 -0.500177">
+                                                <inertial pos="0.0076685 -1.9581e-05 -0.0016592"
+                                                    quat="0.342444 0.630189 0.600316 0.353856"
+                                                    mass="0.50578"
+                                                    diaginertia="1.0215e-06 9.78793e-07 7.18278e-07" />
+                                                <joint name="r_f_joint4_1" pos="0 0 0" axis="0 0 -1"
+                                                    range="-0.25 0"
+                                                    actuatorfrcrange="-100 100" />
+                                                <geom type="mesh" rgba="0.3098 0.3098 0.3098 1"
+                                                    mesh="r_f_link4_1" />
+                                                <body name="r_f_link4_2" pos="0.017 0 0"
+                                                    quat="0.707105 0.707108 0 0">
+                                                    <inertial
+                                                        pos="0.0212952 0.000212333 0.000210607"
+                                                        quat="0.507599 0.508471 0.491055 0.492611"
+                                                        mass="0.530681"
+                                                        diaginertia="4.98637e-06 4.55679e-06 1.68197e-06" />
+                                                    <joint name="r_f_joint4_2" pos="0 0 0"
+                                                        axis="0 0 -1" range="-1.57 0"
+                                                        actuatorfrcrange="-100 100" />
+                                                    <geom type="mesh"
+                                                        rgba="0.75294 0.75294 0.75294 1"
+                                                        mesh="r_f_link4_2" />
+                                                    <geom type="mesh"
+                                                        rgba="0.29804 0.29804 0.29804 1"
+                                                        mesh="r_f_link4_2_1" />
+                                                    <geom type="mesh" rgba="1 1 1 1"
+                                                        mesh="r_f_link4_2_2" />
+                                                    <body name="r_f_link4_3" pos="0.043 0 0">
+                                                        <inertial
+                                                            pos="0.0125851 -0.00126744 1.56391e-05"
+                                                            quat="0.00456934 0.708856 -0.0120367 0.705236"
+                                                            mass="0.515559"
+                                                            diaginertia="1.06058e-06 9.83881e-07 5.45198e-07" />
+                                                        <joint name="r_f_joint4_3" pos="0 0 0"
+                                                            axis="0 0 -1" range="-1.57 0"
+                                                            actuatorfrcrange="-100 100" />
+                                                        <geom type="mesh"
+                                                            rgba="0.75294 0.75294 0.75294 1"
+                                                            mesh="r_f_link4_3" />
+                                                        <geom type="mesh"
+                                                            rgba="0.29804 0.29804 0.29804 1"
+                                                            mesh="r_f_link4_3_1" />
+                                                        <geom type="mesh" rgba="1 1 1 1"
+                                                            mesh="r_f_link4_3_2" />
+                                                        <body name="r_f_link4_4" pos="0.025 0 0">
+                                                            <inertial
+                                                                pos="0.0181769 -0.000161514 9.95847e-07"
+                                                                quat="0.509668 0.509711 0.490051 0.490187"
+                                                                mass="0.593678"
+                                                                diaginertia="2.51278e-06 2.26097e-06 7.95369e-07" />
+                                                            <joint name="r_f_joint4_4" pos="0 0 0"
+                                                                axis="0 0 -1" range="-1.57 0"
+                                                                actuatorfrcrange="-100 100" />
+                                                            <geom type="mesh"
+                                                                rgba="0.33333 0.33333 0.33333 1"
+                                                                mesh="r_f_link4_4" />
+                                                            <geom type="mesh"
+                                                                rgba="0.29804 0.29804 0.29804 1"
+                                                                mesh="r_f_link4_4_1" />
+                                                            <geom type="mesh" rgba="1 1 1 1"
+                                                                mesh="r_f_link4_4_2" />
+                                                            <site name="site_r_f_link4_4"
+                                                                pos="0.025 0.003 0" size="0.01"
+                                                                type="sphere" />
+                                                        </body>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="r_f_link5_1"
+                                                pos="0.037982 0.0069922 0.30285"
+                                                quat="0.499823 -0.500175 -0.499825 -0.500177">
+                                                <inertial pos="0.0076685 -1.9581e-05 -0.0016592"
+                                                    quat="0.342444 0.630189 0.600316 0.353856"
+                                                    mass="0.50578"
+                                                    diaginertia="1.0215e-06 9.78793e-07 7.18278e-07" />
+                                                <joint name="r_f_joint5_1" pos="0 0 0" axis="0 0 -1"
+                                                    range="-0.5 0"
+                                                    actuatorfrcrange="-100 100" />
+                                                <geom type="mesh" rgba="0.3098 0.3098 0.3098 1"
+                                                    mesh="r_f_link5_1" />
+                                                <body name="r_f_link5_2" pos="0.017 0 0"
+                                                    quat="0.707105 0.707108 0 0">
+                                                    <inertial
+                                                        pos="0.0212954 0.000219952 0.000212977"
+                                                        quat="0.507312 0.508794 0.49071 0.492916"
+                                                        mass="0.530683"
+                                                        diaginertia="4.98631e-06 4.55923e-06 1.6844e-06" />
+                                                    <joint name="r_f_joint5_2" pos="0 0 0"
+                                                        axis="0 0 -1" range="-1.57 0"
+                                                        actuatorfrcrange="-100 100" />
+                                                    <geom type="mesh"
+                                                        rgba="0.752941 0.752941 0.752941 1"
+                                                        mesh="r_f_link5_2" />
+                                                    <geom type="mesh"
+                                                        rgba="0.298039 0.298039 0.298039 1"
+                                                        mesh="r_f_link5_2_1" />
+                                                    <geom type="mesh" rgba="1 1 1 1"
+                                                        mesh="r_f_link5_2_2" />
+                                                    <body name="r_f_link5_3" pos="0.043 0 0">
+                                                        <inertial
+                                                            pos="0.0125523 -0.00126743 1.56526e-05"
+                                                            quat="0.00191308 0.708887 -0.00952629 0.705255"
+                                                            mass="0.515559"
+                                                            diaginertia="1.06055e-06 9.83734e-07 5.45321e-07" />
+                                                        <joint name="r_f_joint5_3" pos="0 0 0"
+                                                            axis="0 0 -1" range="-1.57 0"
+                                                            actuatorfrcrange="-100 100" />
+                                                        <geom type="mesh"
+                                                            rgba="0.752941 0.752941 0.752941 1"
+                                                            mesh="r_f_link5_3" />
+                                                        <geom type="mesh"
+                                                            rgba="0.298039 0.298039 0.298039 1"
+                                                            mesh="r_f_link5_3_1" />
+                                                        <geom type="mesh" rgba="1 1 1 1"
+                                                            mesh="r_f_link5_3_2" />
+                                                        <body name="r_f_link5_4" pos="0.025 0 0">
+                                                            <inertial
+                                                                pos="0.0181106 -0.000161544 9.95666e-07"
+                                                                quat="0.509123 0.509165 0.490617 0.490754"
+                                                                mass="0.593676"
+                                                                diaginertia="2.50918e-06 2.25775e-06 7.95666e-07" />
+                                                            <joint name="r_f_joint5_4" pos="0 0 0"
+                                                                axis="0 0 -1" range="-1.57 0"
+                                                                actuatorfrcrange="-100 100" />
+                                                            <geom type="mesh"
+                                                                rgba="0.333333 0.333333 0.333333 1"
+                                                                mesh="r_f_link5_4" />
+                                                            <geom type="mesh"
+                                                                rgba="0.298039 0.298039 0.298039 1"
+                                                                mesh="r_f_link5_4_1" />
+                                                            <geom type="mesh" rgba="1 1 1 1"
+                                                                mesh="r_f_link5_4_2" />
+                                                            <site name="site_r_f_link5_4"
+                                                                pos="0.025 0.003 0" size="0.01"
+                                                                type="sphere" />
+                                                        </body>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+    <actuator>
+        <position name="act_ARTx" joint="ARTx" kp="10000" kv="500" ctrlrange="-1 1"
+            forcerange="-20 20" />
+        <position name="act_ARTy" joint="ARTy" kp="10000" kv="500" ctrlrange="-1 1"
+            forcerange="-20 20" />
+        <position name="act_ARTz" joint="ARTz" kp="10000" kv="500" ctrlrange="-1 1"
+            forcerange="-20 20" />
+        <position name="act_ARRx" joint="ARRx" kp="10000" kv="500" ctrlrange="-3.14 3.14"
+            forcerange="-20 20" />
+        <position name="act_ARRy" joint="ARRy" kp="10000" kv="500" ctrlrange="-3.14 3.14"
+            forcerange="-20 20" />
+        <position name="act_ARRz" joint="ARRz" kp="10000" kv="500" ctrlrange="-3.14 3.14"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint2_2" joint="r_f_joint2_2" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint2_3" joint="r_f_joint2_3" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint2_4" joint="r_f_joint2_4" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint3_2" joint="r_f_joint3_2" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint3_3" joint="r_f_joint3_3" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint3_4" joint="r_f_joint3_4" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint4_2" joint="r_f_joint4_2" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint4_3" joint="r_f_joint4_3" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint4_4" joint="r_f_joint4_4" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint5_2" joint="r_f_joint5_2" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint5_3" joint="r_f_joint5_3" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint5_4" joint="r_f_joint5_4" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint1_2" joint="r_f_joint1_2" kp="20" kv="1" ctrlrange="0 0.78"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint1_3" joint="r_f_joint1_3" kp="20" kv="1" ctrlrange="-1.57 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint1_1" joint="r_f_joint1_1" kp="20" kv="1" ctrlrange="-2.35 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint2_1" joint="r_f_joint2_1" kp="20" kv="1" ctrlrange="-0.25 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint3_1" joint="r_f_joint3_1" kp="20" kv="1"
+            ctrlrange="-0.0001 0.0001"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint4_1" joint="r_f_joint4_1" kp="20" kv="1" ctrlrange="-0.25 0"
+            forcerange="-20 20" />
+        <position name="act_r_f_joint5_1" joint="r_f_joint5_1" kp="20" kv="1" ctrlrange="-0.5 0"
+            forcerange="-20 20" />
+    </actuator>
+    <asset>
+        <mesh name="r_a_link7" file="../meshes/r_a_link7.STL" />
+        <mesh name="r_a_link7_1" file="../meshes/r_a_link7_1.STL" />
+        <mesh name="r_a_link7_2" file="../meshes/r_a_link7_2.STL" />
+        <mesh name="r_a_link7_3" file="../meshes/r_a_link7_3.STL" />
+        <mesh name="r_a_link7_4" file="../meshes/r_a_link7_4.STL" />
+        <mesh name="r_f_link1_1" file="../meshes/r_f_link1_1.STL" />
+        <mesh name="r_f_link1_2" file="../meshes/r_f_link1_2.STL" />
+        <mesh name="r_f_link1_2_1" file="../meshes/r_f_link1_2_1.STL" />
+        <mesh name="r_f_link1_3" file="../meshes/r_f_link1_3.STL" />
+        <mesh name="r_f_link1_3_1" file="../meshes/r_f_link1_3_1.STL" />
+        <mesh name="r_f_link1_3_2" file="../meshes/r_f_link1_3_2.STL" />
+        <mesh name="r_f_link2_1" file="../meshes/r_f_link2_1.STL" />
+        <mesh name="r_f_link2_2" file="../meshes/r_f_link2_2.STL" />
+        <mesh name="r_f_link2_2_1" file="../meshes/r_f_link2_2_1.STL" />
+        <mesh name="r_f_link2_2_2" file="../meshes/r_f_link2_2_2.STL" />
+        <mesh name="r_f_link2_3" file="../meshes/r_f_link2_3.STL" />
+        <mesh name="r_f_link2_3_1" file="../meshes/r_f_link2_3_1.STL" />
+        <mesh name="r_f_link2_3_2" file="../meshes/r_f_link2_3_2.STL" />
+        <mesh name="r_f_link2_4" file="../meshes/r_f_link2_4.STL" />
+        <mesh name="r_f_link2_4_1" file="../meshes/r_f_link2_4_1.STL" />
+        <mesh name="r_f_link2_4_2" file="../meshes/r_f_link2_4_2.STL" />
+        <mesh name="r_f_link3_1" file="../meshes/r_f_link3_1.STL" />
+        <mesh name="r_f_link3_2" file="../meshes/r_f_link3_2.STL" />
+        <mesh name="r_f_link3_2_1" file="../meshes/r_f_link3_2_1.STL" />
+        <mesh name="r_f_link3_2_2" file="../meshes/r_f_link3_2_2.STL" />
+        <mesh name="r_f_link3_3" file="../meshes/r_f_link3_3.STL" />
+        <mesh name="r_f_link3_3_1" file="../meshes/r_f_link3_3_1.STL" />
+        <mesh name="r_f_link3_3_2" file="../meshes/r_f_link3_3_2.STL" />
+        <mesh name="r_f_link3_4" file="../meshes/r_f_link3_4.STL" />
+        <mesh name="r_f_link3_4_1" file="../meshes/r_f_link3_4_1.STL" />
+        <mesh name="r_f_link3_4_2" file="../meshes/r_f_link3_4_2.STL" />
+        <mesh name="r_f_link4_1" file="../meshes/r_f_link4_1.STL" />
+        <mesh name="r_f_link4_2" file="../meshes/r_f_link4_2.STL" />
+        <mesh name="r_f_link4_2_1" file="../meshes/r_f_link4_2_1.STL" />
+        <mesh name="r_f_link4_2_2" file="../meshes/r_f_link4_2_2.STL" />
+        <mesh name="r_f_link4_3" file="../meshes/r_f_link4_3.STL" />
+        <mesh name="r_f_link4_3_1" file="../meshes/r_f_link4_3_1.STL" />
+        <mesh name="r_f_link4_3_2" file="../meshes/r_f_link4_3_2.STL" />
+        <mesh name="r_f_link4_4" file="../meshes/r_f_link4_4.STL" />
+        <mesh name="r_f_link4_4_1" file="../meshes/r_f_link4_4_1.STL" />
+        <mesh name="r_f_link4_4_2" file="../meshes/r_f_link4_4_2.STL" />
+        <mesh name="r_f_link5_1" file="../meshes/r_f_link5_1.STL" />
+        <mesh name="r_f_link5_2" file="../meshes/r_f_link5_2.STL" />
+        <mesh name="r_f_link5_2_1" file="../meshes/r_f_link5_2_1.STL" />
+        <mesh name="r_f_link5_2_2" file="../meshes/r_f_link5_2_2.STL" />
+        <mesh name="r_f_link5_3" file="../meshes/r_f_link5_3.STL" />
+        <mesh name="r_f_link5_3_1" file="../meshes/r_f_link5_3_1.STL" />
+        <mesh name="r_f_link5_3_2" file="../meshes/r_f_link5_3_2.STL" />
+        <mesh name="r_f_link5_4" file="../meshes/r_f_link5_4.STL" />
+        <mesh name="r_f_link5_4_1" file="../meshes/r_f_link5_4_1.STL" />
+        <mesh name="r_f_link5_4_2" file="../meshes/r_f_link5_4_2.STL" />
+        <mesh name="r_a_link7_5" file="../meshes/r_a_link7_5.STL" />
+        <mesh name="r_a_link7_6" file="../meshes/r_a_link7_6.STL" />
+        <mesh name="r_a_link7_7" file="../meshes/r_a_link7_7.STL" />
+        <mesh name="r_a_link7_8" file="../meshes/r_a_link7_8.STL" />
+    </asset>
+    <sensor>
+        <touch name="touch_r_f_link1_3" site="site_r_f_link1_3" />
+        <touch name="touch_r_f_link2_4" site="site_r_f_link2_4" />
+        <touch name="touch_r_f_link3_4" site="site_r_f_link3_4" />
+        <touch name="touch_r_f_link4_4" site="site_r_f_link4_4" />
+        <touch name="touch_r_f_link5_4" site="site_r_f_link5_4" />
+    </sensor>
+    <contact>
+        <exclude body1="right_hand_trunk" body2="r_f_link1_1" />
+        <exclude body1="right_hand_trunk" body2="r_f_link1_2" />
+        <exclude body1="right_hand_trunk" body2="r_f_link1_3" />
+        <exclude body1="right_hand_trunk" body2="r_f_link2_1" />
+        <exclude body1="right_hand_trunk" body2="r_f_link2_2" />
+        <exclude body1="right_hand_trunk" body2="r_f_link2_3" />
+        <exclude body1="right_hand_trunk" body2="r_f_link2_4" />
+        <exclude body1="right_hand_trunk" body2="r_f_link3_1" />
+        <exclude body1="right_hand_trunk" body2="r_f_link3_2" />
+        <exclude body1="right_hand_trunk" body2="r_f_link3_3" />
+        <exclude body1="right_hand_trunk" body2="r_f_link3_4" />
+        <exclude body1="right_hand_trunk" body2="r_f_link4_1" />
+        <exclude body1="right_hand_trunk" body2="r_f_link4_2" />
+        <exclude body1="right_hand_trunk" body2="r_f_link4_3" />
+        <exclude body1="right_hand_trunk" body2="r_f_link4_4" />
+        <exclude body1="right_hand_trunk" body2="r_f_link5_1" />
+        <exclude body1="right_hand_trunk" body2="r_f_link5_2" />
+        <exclude body1="right_hand_trunk" body2="r_f_link5_3" />
+        <exclude body1="right_hand_trunk" body2="r_f_link5_4" />
+        <exclude body1="r_f_link1_1" body2="r_f_link1_2" />
+        <exclude body1="r_f_link1_1" body2="r_f_link1_3" />
+        <exclude body1="r_f_link1_2" body2="r_f_link1_3" />
+        <exclude body1="r_f_link2_1" body2="r_f_link2_2" />
+        <exclude body1="r_f_link2_1" body2="r_f_link2_3" />
+        <exclude body1="r_f_link2_1" body2="r_f_link2_4" />
+        <exclude body1="r_f_link2_1" body2="r_f_link3_1" />
+        <exclude body1="r_f_link2_1" body2="r_f_link3_2" />
+        <exclude body1="r_f_link2_1" body2="r_f_link3_3" />
+        <exclude body1="r_f_link2_1" body2="r_f_link3_4" />
+        <exclude body1="r_f_link2_1" body2="r_f_link4_1" />
+        <exclude body1="r_f_link2_1" body2="r_f_link4_2" />
+        <exclude body1="r_f_link2_1" body2="r_f_link4_3" />
+        <exclude body1="r_f_link2_1" body2="r_f_link4_4" />
+        <exclude body1="r_f_link2_1" body2="r_f_link5_1" />
+        <exclude body1="r_f_link2_1" body2="r_f_link5_2" />
+        <exclude body1="r_f_link2_1" body2="r_f_link5_3" />
+        <exclude body1="r_f_link2_1" body2="r_f_link5_4" />
+        <exclude body1="r_f_link2_2" body2="r_f_link2_3" />
+        <exclude body1="r_f_link2_2" body2="r_f_link2_4" />
+        <exclude body1="r_f_link2_2" body2="r_f_link3_1" />
+        <exclude body1="r_f_link2_2" body2="r_f_link3_2" />
+        <exclude body1="r_f_link2_2" body2="r_f_link3_3" />
+        <exclude body1="r_f_link2_2" body2="r_f_link3_4" />
+        <exclude body1="r_f_link2_2" body2="r_f_link4_1" />
+        <exclude body1="r_f_link2_2" body2="r_f_link4_2" />
+        <exclude body1="r_f_link2_2" body2="r_f_link4_3" />
+        <exclude body1="r_f_link2_2" body2="r_f_link4_4" />
+        <exclude body1="r_f_link2_2" body2="r_f_link5_1" />
+        <exclude body1="r_f_link2_2" body2="r_f_link5_2" />
+        <exclude body1="r_f_link2_2" body2="r_f_link5_3" />
+        <exclude body1="r_f_link2_2" body2="r_f_link5_4" />
+        <exclude body1="r_f_link2_3" body2="r_f_link2_4" />
+        <exclude body1="r_f_link2_3" body2="r_f_link3_1" />
+        <exclude body1="r_f_link2_3" body2="r_f_link3_2" />
+        <exclude body1="r_f_link2_3" body2="r_f_link3_3" />
+        <exclude body1="r_f_link2_3" body2="r_f_link3_4" />
+        <exclude body1="r_f_link2_3" body2="r_f_link4_1" />
+        <exclude body1="r_f_link2_3" body2="r_f_link4_2" />
+        <exclude body1="r_f_link2_3" body2="r_f_link4_3" />
+        <exclude body1="r_f_link2_3" body2="r_f_link4_4" />
+        <exclude body1="r_f_link2_3" body2="r_f_link5_1" />
+        <exclude body1="r_f_link2_3" body2="r_f_link5_2" />
+        <exclude body1="r_f_link2_3" body2="r_f_link5_3" />
+        <exclude body1="r_f_link2_3" body2="r_f_link5_4" />
+        <exclude body1="r_f_link2_4" body2="r_f_link3_1" />
+        <exclude body1="r_f_link2_4" body2="r_f_link3_2" />
+        <exclude body1="r_f_link2_4" body2="r_f_link3_3" />
+        <exclude body1="r_f_link2_4" body2="r_f_link3_4" />
+        <exclude body1="r_f_link2_4" body2="r_f_link4_1" />
+        <exclude body1="r_f_link2_4" body2="r_f_link4_2" />
+        <exclude body1="r_f_link2_4" body2="r_f_link4_3" />
+        <exclude body1="r_f_link2_4" body2="r_f_link4_4" />
+        <exclude body1="r_f_link2_4" body2="r_f_link5_1" />
+        <exclude body1="r_f_link2_4" body2="r_f_link5_2" />
+        <exclude body1="r_f_link2_4" body2="r_f_link5_3" />
+        <exclude body1="r_f_link2_4" body2="r_f_link5_4" />
+        <exclude body1="r_f_link3_1" body2="r_f_link3_2" />
+        <exclude body1="r_f_link3_1" body2="r_f_link3_3" />
+        <exclude body1="r_f_link3_1" body2="r_f_link3_4" />
+        <exclude body1="r_f_link3_1" body2="r_f_link4_1" />
+        <exclude body1="r_f_link3_1" body2="r_f_link4_2" />
+        <exclude body1="r_f_link3_1" body2="r_f_link4_3" />
+        <exclude body1="r_f_link3_1" body2="r_f_link4_4" />
+        <exclude body1="r_f_link3_1" body2="r_f_link5_1" />
+        <exclude body1="r_f_link3_1" body2="r_f_link5_2" />
+        <exclude body1="r_f_link3_1" body2="r_f_link5_3" />
+        <exclude body1="r_f_link3_1" body2="r_f_link5_4" />
+        <exclude body1="r_f_link3_2" body2="r_f_link3_3" />
+        <exclude body1="r_f_link3_2" body2="r_f_link3_4" />
+        <exclude body1="r_f_link3_2" body2="r_f_link4_1" />
+        <exclude body1="r_f_link3_2" body2="r_f_link4_2" />
+        <exclude body1="r_f_link3_2" body2="r_f_link4_3" />
+        <exclude body1="r_f_link3_2" body2="r_f_link4_4" />
+        <exclude body1="r_f_link3_2" body2="r_f_link5_1" />
+        <exclude body1="r_f_link3_2" body2="r_f_link5_2" />
+        <exclude body1="r_f_link3_2" body2="r_f_link5_3" />
+        <exclude body1="r_f_link3_2" body2="r_f_link5_4" />
+        <exclude body1="r_f_link3_3" body2="r_f_link3_4" />
+        <exclude body1="r_f_link3_3" body2="r_f_link4_1" />
+        <exclude body1="r_f_link3_3" body2="r_f_link4_2" />
+        <exclude body1="r_f_link3_3" body2="r_f_link4_3" />
+        <exclude body1="r_f_link3_3" body2="r_f_link4_4" />
+        <exclude body1="r_f_link3_3" body2="r_f_link5_1" />
+        <exclude body1="r_f_link3_3" body2="r_f_link5_2" />
+        <exclude body1="r_f_link3_3" body2="r_f_link5_3" />
+        <exclude body1="r_f_link3_3" body2="r_f_link5_4" />
+        <exclude body1="r_f_link3_4" body2="r_f_link4_1" />
+        <exclude body1="r_f_link3_4" body2="r_f_link4_2" />
+        <exclude body1="r_f_link3_4" body2="r_f_link4_3" />
+        <exclude body1="r_f_link3_4" body2="r_f_link4_4" />
+        <exclude body1="r_f_link3_4" body2="r_f_link5_1" />
+        <exclude body1="r_f_link3_4" body2="r_f_link5_2" />
+        <exclude body1="r_f_link3_4" body2="r_f_link5_3" />
+        <exclude body1="r_f_link3_4" body2="r_f_link5_4" />
+        <exclude body1="r_f_link4_1" body2="r_f_link4_2" />
+        <exclude body1="r_f_link4_1" body2="r_f_link4_3" />
+        <exclude body1="r_f_link4_1" body2="r_f_link4_4" />
+        <exclude body1="r_f_link4_1" body2="r_f_link5_1" />
+        <exclude body1="r_f_link4_1" body2="r_f_link5_2" />
+        <exclude body1="r_f_link4_1" body2="r_f_link5_3" />
+        <exclude body1="r_f_link4_1" body2="r_f_link5_4" />
+        <exclude body1="r_f_link4_2" body2="r_f_link4_3" />
+        <exclude body1="r_f_link4_2" body2="r_f_link4_4" />
+        <exclude body1="r_f_link4_2" body2="r_f_link5_1" />
+        <exclude body1="r_f_link4_2" body2="r_f_link5_2" />
+        <exclude body1="r_f_link4_2" body2="r_f_link5_3" />
+        <exclude body1="r_f_link4_2" body2="r_f_link5_4" />
+        <exclude body1="r_f_link4_3" body2="r_f_link4_4" />
+        <exclude body1="r_f_link4_3" body2="r_f_link5_1" />
+        <exclude body1="r_f_link4_3" body2="r_f_link5_2" />
+        <exclude body1="r_f_link4_3" body2="r_f_link5_3" />
+        <exclude body1="r_f_link4_3" body2="r_f_link5_4" />
+        <exclude body1="r_f_link4_4" body2="r_f_link5_1" />
+        <exclude body1="r_f_link4_4" body2="r_f_link5_2" />
+        <exclude body1="r_f_link4_4" body2="r_f_link5_3" />
+        <exclude body1="r_f_link4_4" body2="r_f_link5_4" />
+        <exclude body1="r_f_link5_1" body2="r_f_link5_2" />
+        <exclude body1="r_f_link5_1" body2="r_f_link5_3" />
+        <exclude body1="r_f_link5_1" body2="r_f_link5_4" />
+        <exclude body1="r_f_link5_2" body2="r_f_link5_3" />
+        <exclude body1="r_f_link5_2" body2="r_f_link5_4" />
+        <exclude body1="r_f_link5_3" body2="r_f_link5_4" />
+    </contact>
+</mujoco>
