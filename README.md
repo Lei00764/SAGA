@@ -16,9 +16,9 @@ python joint_monkey.py
 3. Clone and install this repository:
 
 ```bash
-git clone https://github.com/lei00764/GALAG-DexHand
-cd GALAG-DexHand
-pip install -e .
+git clone https://github.com/lei00764/SAGA
+cd SAGA
+pip install -r requirements.txt
 ```
 
 ## 🚀 Running
